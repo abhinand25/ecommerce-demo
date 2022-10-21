@@ -1,9 +1,34 @@
+const {read, create} = require('./db');
+const {read, create,deletes} = require('./db');
 
-var admin = require("firebase-admin");
+//get product
+const getProduct = async () => {
+ try{
+  const products = await read('product');
+  console.log('products:',products)
+  console.log('products:',products);
+ } catch (error) {
+  console.log('error: ', error);
+   }
+   name: 'wireless keyboard',
+   price: 800,
+}
+await create('product/3',product) 
+await create('product/3',product);
+catch (error) {
+console.log('error: ', error)
+}
 
-var serviceAccount = require("./fir-3ce30-firebase-adminsdk-zeoel-c8fdaa5c8d.json");
+createProduct(); //create call
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fir-3ce30-default-rtdb.firebaseio.com"
-});
+//delete product
+const deleteProduct = async () => {
+    try{
+      const product = await deletes('product/3/price');
+      console.log('delete:',product);
+    } catch(error) {
+        console.log('error:',error);
+    }
+}
+
+deleteProduct();
